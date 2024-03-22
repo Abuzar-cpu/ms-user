@@ -8,6 +8,7 @@ plugins {
     id 'org.jetbrains.kotlin.jvm' version "$kotlinJvmVersion"
     id 'org.jetbrains.kotlin.plugin.spring' version "$kotlinSpringPluginVersion"
     id 'org.jetbrains.kotlin.plugin.jpa' version "$kotlinJpaPluginVersion"
+    id 'groovy'
 }
 
 
@@ -38,6 +39,18 @@ dependencies {
 
     // Logging
     implementation "io.github.microutils:kotlin-logging-jvm:$loggingVersion"
+
+    // Feign
+    implementation group: 'org.springframework.cloud', name: 'spring-cloud-starter-openfeign', version: "$feignVersion"
+
+    // AOP
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-aop', version: "$aspectVersion"
+
+    // Testing
+    implementation group: 'org.apache.groovy', name: 'groovy', version: "$groovyVersion"
+    testImplementation("io.github.benas:random-beans:$randomBeansVersion")
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation group: 'org.spockframework', name: 'spock-spring', version: "$spockSpringVersion"
 
 }
 
